@@ -1,16 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sql } from "@/lib/db";
+import { getDb } from "@/lib/db";
 
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } }
 ) {
   try {
-    const result = await sql`SELECT * FROM receipts WHERE id = ${params.id}`;
-    if (result.rows.length === 0) {
+    const sql = getDb();
+    const rows = await sql`SELECT * FROM receipts WHERE id = ${params.id}`;
+    if (rows.length === 0) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
-    const row = result.rows[0];
+    const row = rows[0];
     return NextResponse.json({
       ...row,
       items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
@@ -25,17 +26,11 @@ export async function PUT(
   { params }: { params: { id: string } }
 ) {
   try {
+    const sql = getDb();
     const body = await req.json();
-    const {
-      merchant,
-      receipt_date,
-      total,
-      currency,
-      category,
-      items,
-    } = body;
+    const { merchant, receipt_date, total, currency, category, items } = body;
 
-    const result = await sql`
+    const rows = await sql`
       UPDATE receipts
       SET
         merchant = ${merchant ?? null},
@@ -47,10 +42,10 @@ export async function PUT(
       WHERE id = ${params.id}
       RETURNING *
     `;
-    if (result.rows.length === 0) {
+    if (rows.length === 0) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
-    const row = result.rows[0];
+    const row = rows[0];
     return NextResponse.json({
       ...row,
       items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
@@ -65,6 +60,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
+    const sql = getDb();
     await sql`DELETE FROM receipts WHERE id = ${params.id}`;
     return NextResponse.json({ ok: true });
   } catch (err) {

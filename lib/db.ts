@@ -1,2 +1,10 @@
-import { sql } from "@vercel/postgres";
-export { sql };
+import { neon, NeonQueryFunction } from "@neondatabase/serverless";
+
+let _sql: NeonQueryFunction<false, false> | null = null;
+
+export function getDb(): NeonQueryFunction<false, false> {
+  if (!_sql) {
+    _sql = neon(process.env.DATABASE_URL!);
+  }
+  return _sql;
+}
