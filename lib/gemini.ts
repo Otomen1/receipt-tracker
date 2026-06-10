@@ -7,7 +7,7 @@ export async function extractReceiptData(
   imageBase64: string,
   mimeType: string = "image/jpeg"
 ): Promise<ExtractedReceiptData> {
-  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash" });
+  const model = genAI.getGenerativeModel({ model: "gemini-2.0-flash-lite" });
 
   const prompt = `You are a receipt OCR assistant. Analyze this receipt image and extract the following information in JSON format:
 {
