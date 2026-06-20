@@ -1,4 +1,4 @@
-import Mistral from "@mistralai/mistralai";
+import { Mistral } from "@mistralai/mistralai";
 import { ExtractedReceiptData } from "./types";
 
 const client = new Mistral({ apiKey: process.env.MISTRAL_API_KEY || "" });
