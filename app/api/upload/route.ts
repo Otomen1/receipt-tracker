@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
-import { extractReceiptData } from "@/lib/gemini";
+import { extractReceiptData } from "@/lib/mistral";
 import { pdfToBase64Image } from "@/lib/pdf-to-image";
 
 export async function POST(req: NextRequest) {
