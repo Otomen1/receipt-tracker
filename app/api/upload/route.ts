@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
-import { extractReceiptData } from "@/lib/mistral";
-import { pdfToBase64Image } from "@/lib/pdf-to-image";
+import { extractReceiptData, extractReceiptDataFromUrl } from "@/lib/mistral";
 
 export async function POST(req: NextRequest) {
   try {
@@ -12,31 +11,24 @@ export async function POST(req: NextRequest) {
       return NextResponse.json({ error: "No file provided" }, { status: 400 });
     }
 
-    const fileType = file.type; // e.g. "image/jpeg", "application/pdf"
+    const fileType = file.type;
     const arrayBuffer = await file.arrayBuffer();
     const buffer = Buffer.from(arrayBuffer);
 
-    // Upload to Vercel Blob
+    // Upload to Vercel Blob first (needed for PDF OCR URL)
     const blob = await put(file.name, buffer, {
       access: "public",
       contentType: fileType,
     });
 
-    // Convert to image for OCR
-    let imageBase64: string;
-    let imageMimeType: string;
-
+    // Run OCR — PDFs use Mistral document OCR via URL, images use vision model
+    let extracted;
     if (fileType === "application/pdf") {
-      const converted = await pdfToBase64Image(buffer);
-      imageBase64 = converted.base64;
-      imageMimeType = converted.mimeType;
+      extracted = await extractReceiptDataFromUrl(blob.url);
     } else {
-      imageBase64 = buffer.toString("base64");
-      imageMimeType = fileType;
+      const imageBase64 = buffer.toString("base64");
+      extracted = await extractReceiptData(imageBase64, fileType);
     }
-
-    // Run OCR
-    const extracted = await extractReceiptData(imageBase64, imageMimeType);
 
     return NextResponse.json({
       ...extracted,
