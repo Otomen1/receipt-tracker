@@ -9,7 +9,7 @@ interface Props {
   onSaved: (r: Receipt) => void;
 }
 
-const CATEGORIES = ["Groceries", "Restaurant", "Transport", "Shopping", "Other"];
+const CATEGORIES = ["Groceries", "Restaurant", "Transport", "Shopping", "Healthcare", "Entertainment", "Utilities", "Travel", "Beauty", "Education", "Other"];
 
 export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
   const [form, setForm] = useState({

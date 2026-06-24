@@ -8,7 +8,7 @@ interface Props {
   onSaved: () => void;
 }
 
-const CATEGORIES = ["Groceries", "Restaurant", "Transport", "Shopping", "Other"];
+const CATEGORIES = ["Groceries", "Restaurant", "Transport", "Shopping", "Healthcare", "Entertainment", "Utilities", "Travel", "Beauty", "Education", "Other"];
 
 export default function UploadDropzone({ onClose, onSaved }: Props) {
   const [dragging, setDragging] = useState(false);

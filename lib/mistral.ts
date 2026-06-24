@@ -13,7 +13,7 @@ RULES:
 - For "total": extract the FINAL PAYABLE amount — what was actually paid after tax and discount. Look for: TOTAL, JUMLAH, AMAUN DIBAYAR, BAYARAN, GRAND TOTAL. Do NOT use subtotal.
 - For "merchant": the business name only, not branch or address. Clean and concise.
 - For "receipt_date": return YYYY-MM-DD only. Convert from any format found on the receipt.
-- For "category": use ONLY one of these exact values: Groceries, Restaurant, Transport, Shopping, Other.
+- For "category": use ONLY one of these exact values: Groceries, Restaurant, Transport, Shopping, Healthcare, Entertainment, Utilities, Travel, Beauty, Education, Other.
 - For "items": individual line items only. Exclude tax lines, subtotals, totals, and headers.
 - For "sst_amount": SST or Service Tax amount if shown (common on Malaysian receipts: SST, CUKAI PERKHIDMATAN).
 - For "discount": total discount applied if shown (DISKAUN, REBAT, MEMBER DISC).
@@ -25,7 +25,7 @@ OUTPUT — return exactly this JSON structure, nothing else:
   "receipt_date": "YYYY-MM-DD" or null,
   "total": number or null,
   "currency": "MYR",
-  "category": "Groceries" or "Restaurant" or "Transport" or "Shopping" or "Other" or null,
+  "category": "Groceries" or "Restaurant" or "Transport" or "Shopping" or "Healthcare" or "Entertainment" or "Utilities" or "Travel" or "Beauty" or "Education" or "Other" or null,
   "sst_amount": number or null,
   "discount": number or null,
   "payment_method": string or null,

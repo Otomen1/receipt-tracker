@@ -26,6 +26,12 @@ export type Category =
   | "Restaurant"
   | "Transport"
   | "Shopping"
+  | "Healthcare"
+  | "Entertainment"
+  | "Utilities"
+  | "Travel"
+  | "Beauty"
+  | "Education"
   | "Other";
 
 export interface ExtractedReceiptData {

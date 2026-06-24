@@ -15,6 +15,12 @@ const CATEGORY_EMOJI: Record<string, string> = {
   Restaurant: "🍽️",
   Transport: "🚗",
   Shopping: "🛍️",
+  Healthcare: "🏥",
+  Entertainment: "🎬",
+  Utilities: "💡",
+  Travel: "✈️",
+  Beauty: "💄",
+  Education: "📚",
   Other: "🧾",
 };
 
