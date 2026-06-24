@@ -13,7 +13,7 @@ export async function GET() {
     })));
   } catch (err) {
     console.error("GET /api/receipts error:", err);
-    return NextResponse.json({ error: String(err) }, { status: 500 });
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -39,18 +39,18 @@ export async function POST(req: NextRequest) {
     const rows = await sql`
       INSERT INTO receipts (merchant, receipt_date, total, currency, category, items, raw_text, file_url, file_type, sst_amount, discount, payment_method)
       VALUES (
-        ${merchant || null},
+        ${(merchant || null)?.slice(0, 255) ?? null},
         ${receipt_date || null},
         ${total ?? null},
-        ${currency},
-        ${category || null},
+        ${(currency ?? "MYR").slice(0, 10)},
+        ${(category || null)?.slice(0, 100) ?? null},
         ${JSON.stringify(items)},
-        ${raw_text || null},
-        ${file_url || null},
-        ${file_type || null},
+        ${(raw_text || null)?.slice(0, 50000) ?? null},
+        ${(file_url || null)?.slice(0, 500) ?? null},
+        ${(file_type || null)?.slice(0, 20) ?? null},
         ${sst_amount ?? null},
         ${discount ?? null},
-        ${payment_method || null}
+        ${(payment_method || null)?.slice(0, 50) ?? null}
       )
       RETURNING *
     `;
@@ -61,6 +61,6 @@ export async function POST(req: NextRequest) {
     });
   } catch (err) {
     console.error("POST /api/receipts error:", err);
-    return NextResponse.json({ error: String(err) }, { status: 500 });
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

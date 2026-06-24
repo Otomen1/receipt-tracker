@@ -17,7 +17,8 @@ export async function GET(
       items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
     });
   } catch (err) {
-    return NextResponse.json({ error: String(err) }, { status: 500 });
+    console.error("GET /api/receipts/[id] error:", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -54,7 +55,8 @@ export async function PUT(
       items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
     });
   } catch (err) {
-    return NextResponse.json({ error: String(err) }, { status: 500 });
+    console.error("PUT /api/receipts/[id] error:", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }
 
@@ -67,6 +69,7 @@ export async function DELETE(
     await sql`DELETE FROM receipts WHERE id = ${params.id}`;
     return NextResponse.json({ ok: true });
   } catch (err) {
-    return NextResponse.json({ error: String(err) }, { status: 500 });
+    console.error("DELETE /api/receipts/[id] error:", err);
+    return NextResponse.json({ error: "Internal server error" }, { status: 500 });
   }
 }

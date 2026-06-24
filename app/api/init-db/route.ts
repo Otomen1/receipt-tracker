@@ -1,7 +1,11 @@
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  if (req.headers.get("x-init-secret") !== process.env.INIT_SECRET) {
+    return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+  }
+
   try {
     const sql = getDb();
     await sql`
@@ -22,13 +26,12 @@ export async function GET() {
         payment_method VARCHAR(50)
       )
     `;
-    // Add new columns to existing tables (safe to re-run)
     await sql`ALTER TABLE receipts ADD COLUMN IF NOT EXISTS sst_amount NUMERIC(10,2)`;
     await sql`ALTER TABLE receipts ADD COLUMN IF NOT EXISTS discount NUMERIC(10,2)`;
     await sql`ALTER TABLE receipts ADD COLUMN IF NOT EXISTS payment_method VARCHAR(50)`;
     return NextResponse.json({ ok: true, message: "Table created or already exists" });
   } catch (err) {
     console.error("init-db error:", err);
-    return NextResponse.json({ ok: false, error: String(err) }, { status: 500 });
+    return NextResponse.json({ ok: false, error: "Internal server error" }, { status: 500 });
   }
 }
