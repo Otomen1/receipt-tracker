@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
-import { extractReceiptData, extractReceiptDataFromUrl } from "@/lib/mistral";
+import sharp from "sharp";
+import { extractReceiptData, extractReceiptDataFromUrl, validateExtraction } from "@/lib/mistral";
 
 export async function POST(req: NextRequest) {
   try {
@@ -21,19 +22,32 @@ export async function POST(req: NextRequest) {
       contentType: fileType,
     });
 
-    // Run OCR — PDFs use Mistral document OCR via URL, images use vision model
     let extracted;
+
     if (fileType === "application/pdf") {
       extracted = await extractReceiptDataFromUrl(blob.url);
     } else {
-      const imageBase64 = buffer.toString("base64");
-      extracted = await extractReceiptData(imageBase64, fileType);
+      // Preprocess image: resize, grayscale, normalize, sharpen before OCR
+      const processedBuffer = await sharp(buffer)
+        .resize({ width: 2000, height: 2000, fit: "inside", withoutEnlargement: true })
+        .grayscale()
+        .normalize()
+        .sharpen({ sigma: 0.5 })
+        .jpeg({ quality: 85 })
+        .toBuffer();
+
+      const imageBase64 = processedBuffer.toString("base64");
+      extracted = await extractReceiptData(imageBase64, "image/jpeg");
     }
+
+    const validation = validateExtraction(extracted);
 
     return NextResponse.json({
       ...extracted,
       file_url: blob.url,
       file_type: fileType,
+      confidence: validation.confidence,
+      warnings: validation.warnings,
     });
   } catch (err) {
     console.error("POST /api/upload error:", err);

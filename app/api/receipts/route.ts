@@ -31,10 +31,13 @@ export async function POST(req: NextRequest) {
       raw_text,
       file_url,
       file_type,
+      sst_amount,
+      discount,
+      payment_method,
     } = body;
 
     const rows = await sql`
-      INSERT INTO receipts (merchant, receipt_date, total, currency, category, items, raw_text, file_url, file_type)
+      INSERT INTO receipts (merchant, receipt_date, total, currency, category, items, raw_text, file_url, file_type, sst_amount, discount, payment_method)
       VALUES (
         ${merchant || null},
         ${receipt_date || null},
@@ -44,7 +47,10 @@ export async function POST(req: NextRequest) {
         ${JSON.stringify(items)},
         ${raw_text || null},
         ${file_url || null},
-        ${file_type || null}
+        ${file_type || null},
+        ${sst_amount ?? null},
+        ${discount ?? null},
+        ${payment_method || null}
       )
       RETURNING *
     `;

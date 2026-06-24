@@ -15,7 +15,7 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
   const [uploading, setUploading] = useState(false);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [extracted, setExtracted] = useState<(ExtractedReceiptData & { file_url: string; file_type: string }) | null>(null);
+  const [extracted, setExtracted] = useState<(ExtractedReceiptData & { file_url: string; file_type: string; confidence?: string; warnings?: string[] }) | null>(null);
   const [form, setForm] = useState({
     merchant: "",
     receipt_date: "",
@@ -141,6 +141,16 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
 
           {extracted && (
             <div className="space-y-3">
+              {extracted.confidence && extracted.confidence !== "high" && (
+                <div className="text-xs bg-yellow-50 border border-yellow-200 text-yellow-800 rounded-lg px-3 py-2">
+                  <span className="font-medium">Review recommended</span> — some fields may be inaccurate.
+                  {extracted.warnings && extracted.warnings.length > 0 && (
+                    <ul className="mt-1 list-disc list-inside space-y-0.5">
+                      {extracted.warnings.map((w, i) => <li key={i}>{w}</li>)}
+                    </ul>
+                  )}
+                </div>
+              )}
               <div>
                 <label className="text-xs font-medium text-gray-600">Merchant</label>
                 <input

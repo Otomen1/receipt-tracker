@@ -28,7 +28,7 @@ export async function PUT(
   try {
     const sql = getDb();
     const body = await req.json();
-    const { merchant, receipt_date, total, currency, category, items } = body;
+    const { merchant, receipt_date, total, currency, category, items, sst_amount, discount, payment_method } = body;
 
     const rows = await sql`
       UPDATE receipts
@@ -38,7 +38,10 @@ export async function PUT(
         total = ${total ?? null},
         currency = ${currency ?? "MYR"},
         category = ${category ?? null},
-        items = ${JSON.stringify(items ?? [])}
+        items = ${JSON.stringify(items ?? [])},
+        sst_amount = ${sst_amount ?? null},
+        discount = ${discount ?? null},
+        payment_method = ${payment_method ?? null}
       WHERE id = ${params.id}
       RETURNING *
     `;

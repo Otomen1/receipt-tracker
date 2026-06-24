@@ -33,4 +33,13 @@ export interface ExtractedReceiptData {
   category: Category | null;
   items: ReceiptItem[];
   raw_text: string | null;
+  sst_amount?: number | null;
+  discount?: number | null;
+  payment_method?: string | null;
+}
+
+export interface ValidationResult {
+  valid: boolean;
+  warnings: string[];
+  confidence: "high" | "medium" | "low";
 }

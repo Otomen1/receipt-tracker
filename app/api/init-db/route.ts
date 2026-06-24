@@ -16,9 +16,16 @@ export async function GET() {
         items JSONB DEFAULT '[]',
         raw_text TEXT,
         file_url TEXT,
-        file_type VARCHAR(20)
+        file_type VARCHAR(20),
+        sst_amount NUMERIC(10,2),
+        discount NUMERIC(10,2),
+        payment_method VARCHAR(50)
       )
     `;
+    // Add new columns to existing tables (safe to re-run)
+    await sql`ALTER TABLE receipts ADD COLUMN IF NOT EXISTS sst_amount NUMERIC(10,2)`;
+    await sql`ALTER TABLE receipts ADD COLUMN IF NOT EXISTS discount NUMERIC(10,2)`;
+    await sql`ALTER TABLE receipts ADD COLUMN IF NOT EXISTS payment_method VARCHAR(50)`;
     return NextResponse.json({ ok: true, message: "Table created or already exists" });
   } catch (err) {
     console.error("init-db error:", err);
