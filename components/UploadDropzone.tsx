@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from "react";
-import { ExtractedReceiptData } from "@/lib/types";
+import { ExtractedReceiptData, ReceiptItem } from "@/lib/types";
 
 interface Props {
   onClose: () => void;
@@ -23,6 +23,7 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
     currency: "MYR",
     category: "Other",
   });
+  const [items, setItems] = useState<ReceiptItem[]>([]);
 
   const processFile = useCallback(async (file: File) => {
     const allowed = ["image/jpeg", "image/png", "application/pdf"];
@@ -44,6 +45,7 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
       if (!res.ok) throw new Error(data.error || "Upload failed");
 
       setExtracted(data);
+      setItems(Array.isArray(data.items) ? data.items : []);
       setForm({
         merchant: data.merchant || "",
         receipt_date: data.receipt_date || "",
@@ -73,6 +75,19 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
     if (file) processFile(file);
   };
 
+  const addItem = () => setItems([...items, { name: "" }]);
+
+  const updateItem = (index: number, field: keyof ReceiptItem, value: string) => {
+    setItems(items.map((item, i) => {
+      if (i !== index) return item;
+      if (field === "name") return { ...item, name: value };
+      const num = parseFloat(value);
+      return { ...item, [field]: value === "" || isNaN(num) ? undefined : num };
+    }));
+  };
+
+  const removeItem = (index: number) => setItems(items.filter((_, i) => i !== index));
+
   const handleSave = async () => {
     if (!extracted) return;
     setSaving(true);
@@ -83,10 +98,13 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
         body: JSON.stringify({
           ...form,
           total: form.total ? parseFloat(form.total) : null,
-          items: extracted.items,
+          items,
           raw_text: extracted.raw_text,
           file_url: extracted.file_url,
           file_type: extracted.file_type,
+          sst_amount: extracted.sst_amount ?? null,
+          discount: extracted.discount ?? null,
+          payment_method: extracted.payment_method ?? null,
         }),
       });
       if (!res.ok) throw new Error("Save failed");
@@ -100,13 +118,13 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md">
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[90vh] flex flex-col">
         <div className="flex items-center justify-between p-5 border-b border-gray-100">
           <h2 className="font-semibold text-gray-900">Upload Receipt</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl">×</button>
         </div>
 
-        <div className="p-5">
+        <div className="p-5 overflow-y-auto">
           {!extracted && !uploading && (
             <div className="space-y-3">
               <label
@@ -171,6 +189,7 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
                   )}
                 </div>
               )}
+
               <div>
                 <label className="text-xs font-medium text-gray-600">Merchant</label>
                 <input
@@ -179,6 +198,7 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
                   onChange={(e) => setForm({ ...form, merchant: e.target.value })}
                 />
               </div>
+
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-gray-600">Date</label>
@@ -200,6 +220,7 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
                   />
                 </div>
               </div>
+
               <div className="grid grid-cols-2 gap-3">
                 <div>
                   <label className="text-xs font-medium text-gray-600">Currency</label>
@@ -221,9 +242,69 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
                 </div>
               </div>
 
+              {/* Items */}
+              <div>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="text-xs font-medium text-gray-600">
+                    Items {items.length > 0 && <span className="text-gray-400">({items.length} found)</span>}
+                  </label>
+                  <button
+                    onClick={addItem}
+                    className="text-xs text-blue-600 hover:text-blue-700 font-medium"
+                  >
+                    + Add item
+                  </button>
+                </div>
+
+                {items.length > 0 ? (
+                  <div className="space-y-1.5 max-h-48 overflow-y-auto pr-1">
+                    {/* Column headers */}
+                    <div className="flex gap-2 text-xs text-gray-400 px-0.5">
+                      <span className="flex-1">Name</span>
+                      <span className="w-14 text-center">Qty</span>
+                      <span className="w-20 text-center">Price</span>
+                      <span className="w-5" />
+                    </div>
+                    {items.map((item, i) => (
+                      <div key={i} className="flex gap-2 items-center">
+                        <input
+                          className="flex-1 border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                          placeholder="Item name"
+                          value={item.name}
+                          onChange={(e) => updateItem(i, "name", e.target.value)}
+                        />
+                        <input
+                          type="number"
+                          className="w-14 border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                          placeholder="—"
+                          value={item.quantity ?? ""}
+                          onChange={(e) => updateItem(i, "quantity", e.target.value)}
+                        />
+                        <input
+                          type="number"
+                          step="0.01"
+                          className="w-20 border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                          placeholder="0.00"
+                          value={item.price ?? ""}
+                          onChange={(e) => updateItem(i, "price", e.target.value)}
+                        />
+                        <button
+                          onClick={() => removeItem(i)}
+                          className="text-gray-300 hover:text-red-500 text-lg leading-none w-5 shrink-0"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-xs text-gray-400 italic">No items detected — click + Add item to add manually.</p>
+                )}
+              </div>
+
               <div className="flex gap-2 pt-2">
                 <button
-                  onClick={() => { setExtracted(null); setError(null); }}
+                  onClick={() => { setExtracted(null); setItems([]); setError(null); }}
                   className="flex-1 border border-gray-200 text-gray-600 py-2 rounded-lg text-sm hover:bg-gray-50"
                 >
                   Re-upload
