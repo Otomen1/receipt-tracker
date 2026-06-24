@@ -6,12 +6,14 @@ import StatsBar from "@/components/StatsBar";
 import ReceiptGrid from "@/components/ReceiptGrid";
 import UploadDropzone from "@/components/UploadDropzone";
 import ReceiptDetail from "@/components/ReceiptDetail";
+import ManualReceiptModal from "@/components/ManualReceiptModal";
 
 export default function Home() {
   const [receipts, setReceipts] = useState<Receipt[]>([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [showUpload, setShowUpload] = useState(false);
+  const [showManual, setShowManual] = useState(false);
   const [selectedReceipt, setSelectedReceipt] = useState<Receipt | null>(null);
 
   const fetchReceipts = useCallback(async () => {
@@ -48,12 +50,20 @@ export default function Home() {
             Upload and manage your receipts
           </p>
         </div>
-        <button
-          onClick={() => setShowUpload(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
-        >
-          + Upload Receipt
-        </button>
+        <div className="flex gap-2">
+          <button
+            onClick={() => setShowManual(true)}
+            className="border border-gray-200 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors"
+          >
+            + Add Manually
+          </button>
+          <button
+            onClick={() => setShowUpload(true)}
+            className="bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+          >
+            + Upload Receipt
+          </button>
+        </div>
       </div>
 
       {/* Stats */}
@@ -87,6 +97,17 @@ export default function Home() {
           onClose={() => setShowUpload(false)}
           onSaved={() => {
             setShowUpload(false);
+            fetchReceipts();
+          }}
+        />
+      )}
+
+      {/* Manual Entry Modal */}
+      {showManual && (
+        <ManualReceiptModal
+          onClose={() => setShowManual(false)}
+          onSaved={() => {
+            setShowManual(false);
             fetchReceipts();
           }}
         />
