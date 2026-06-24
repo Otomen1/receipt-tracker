@@ -22,14 +22,14 @@ export default function ManualReceiptModal({ onClose, onSaved }: Props) {
   });
   const [items, setItems] = useState<ReceiptItem[]>([]);
 
-  const addItem = () => setItems([...items, { name: "", quantity: null, price: null }]);
+  const addItem = () => setItems([...items, { name: "" }]);
 
   const updateItem = (index: number, field: keyof ReceiptItem, value: string) => {
     setItems(items.map((item, i) => {
       if (i !== index) return item;
       if (field === "name") return { ...item, name: value };
-      const num = value === "" ? null : parseFloat(value);
-      return { ...item, [field]: isNaN(num as number) ? null : num };
+      const num = parseFloat(value);
+      return { ...item, [field]: value === "" || isNaN(num) ? undefined : num };
     }));
   };
 
