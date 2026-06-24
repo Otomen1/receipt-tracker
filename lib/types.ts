@@ -16,6 +16,9 @@ export interface Receipt {
   raw_text: string | null;
   file_url: string | null;
   file_type: string | null;
+  sst_amount?: number | null;
+  discount?: number | null;
+  payment_method?: string | null;
 }
 
 export type Category =

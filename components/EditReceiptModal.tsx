@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Receipt } from "@/lib/types";
+import { Receipt, ReceiptItem } from "@/lib/types";
 
 interface Props {
   receipt: Receipt;
@@ -14,15 +14,30 @@ const CATEGORIES = ["Groceries", "Restaurant", "Transport", "Shopping", "Other"]
 export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
   const [form, setForm] = useState({
     merchant: receipt.merchant || "",
-    receipt_date: receipt.receipt_date
-      ? receipt.receipt_date.substring(0, 10)
-      : "",
+    receipt_date: receipt.receipt_date ? receipt.receipt_date.substring(0, 10) : "",
     total: receipt.total != null ? String(receipt.total) : "",
     currency: receipt.currency || "MYR",
     category: receipt.category || "Other",
+    sst_amount: receipt.sst_amount != null ? String(receipt.sst_amount) : "",
+    discount: receipt.discount != null ? String(receipt.discount) : "",
+    payment_method: receipt.payment_method || "",
   });
+  const [items, setItems] = useState<ReceiptItem[]>(receipt.items ?? []);
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  const addItem = () => setItems([...items, { name: "" }]);
+
+  const updateItem = (index: number, field: keyof ReceiptItem, value: string) => {
+    setItems(items.map((item, i) => {
+      if (i !== index) return item;
+      if (field === "name") return { ...item, name: value };
+      const num = parseFloat(value);
+      return { ...item, [field]: value === "" || isNaN(num) ? undefined : num };
+    }));
+  };
+
+  const removeItem = (index: number) => setItems(items.filter((_, i) => i !== index));
 
   const handleSave = async () => {
     setSaving(true);
@@ -34,7 +49,10 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
         body: JSON.stringify({
           ...form,
           total: form.total ? parseFloat(form.total) : null,
-          items: receipt.items,
+          sst_amount: form.sst_amount ? parseFloat(form.sst_amount) : null,
+          discount: form.discount ? parseFloat(form.discount) : null,
+          payment_method: form.payment_method || null,
+          items,
         }),
       });
       if (!res.ok) throw new Error("Failed to save");
@@ -49,12 +67,13 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
 
   return (
     <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md">
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md max-h-[90vh] flex flex-col">
         <div className="flex items-center justify-between p-5 border-b border-gray-100">
           <h2 className="font-semibold text-gray-900">Edit Receipt</h2>
           <button onClick={onClose} className="text-gray-400 hover:text-gray-600 text-xl">×</button>
         </div>
-        <div className="p-5 space-y-3">
+
+        <div className="p-5 overflow-y-auto space-y-3">
           <div>
             <label className="text-xs font-medium text-gray-600">Merchant</label>
             <input
@@ -63,6 +82,7 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
               onChange={(e) => setForm({ ...form, merchant: e.target.value })}
             />
           </div>
+
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs font-medium text-gray-600">Date</label>
@@ -74,7 +94,7 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
               />
             </div>
             <div>
-              <label className="text-xs font-medium text-gray-600">Total</label>
+              <label className="text-xs font-medium text-gray-600">Total (RM)</label>
               <input
                 type="number"
                 step="0.01"
@@ -84,6 +104,7 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
               />
             </div>
           </div>
+
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="text-xs font-medium text-gray-600">Currency</label>
@@ -104,9 +125,97 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
               </select>
             </div>
           </div>
+
+          <div className="grid grid-cols-2 gap-3">
+            <div>
+              <label className="text-xs font-medium text-gray-600">SST Amount</label>
+              <input
+                type="number"
+                step="0.01"
+                className="w-full mt-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                placeholder="0.00"
+                value={form.sst_amount}
+                onChange={(e) => setForm({ ...form, sst_amount: e.target.value })}
+              />
+            </div>
+            <div>
+              <label className="text-xs font-medium text-gray-600">Discount</label>
+              <input
+                type="number"
+                step="0.01"
+                className="w-full mt-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                placeholder="0.00"
+                value={form.discount}
+                onChange={(e) => setForm({ ...form, discount: e.target.value })}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label className="text-xs font-medium text-gray-600">Payment Method</label>
+            <input
+              className="w-full mt-1 border border-gray-200 rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+              placeholder="e.g. Cash, Visa, Touch n Go, DuitNow"
+              value={form.payment_method}
+              onChange={(e) => setForm({ ...form, payment_method: e.target.value })}
+            />
+          </div>
+
+          {/* Line Items */}
+          <div>
+            <div className="flex items-center justify-between mb-1">
+              <label className="text-xs font-medium text-gray-600">Items</label>
+              <button
+                onClick={addItem}
+                className="text-xs text-blue-600 hover:text-blue-700 font-medium"
+              >
+                + Add item
+              </button>
+            </div>
+            {items.length > 0 && (
+              <div className="space-y-2">
+                {items.map((item, i) => (
+                  <div key={i} className="flex gap-2 items-center">
+                    <input
+                      className="flex-1 border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                      placeholder="Item name"
+                      value={item.name}
+                      onChange={(e) => updateItem(i, "name", e.target.value)}
+                    />
+                    <input
+                      type="number"
+                      className="w-14 border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                      placeholder="Qty"
+                      value={item.quantity ?? ""}
+                      onChange={(e) => updateItem(i, "quantity", e.target.value)}
+                    />
+                    <input
+                      type="number"
+                      step="0.01"
+                      className="w-20 border border-gray-200 rounded-lg px-2 py-1.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-300"
+                      placeholder="Price"
+                      value={item.price ?? ""}
+                      onChange={(e) => updateItem(i, "price", e.target.value)}
+                    />
+                    <button
+                      onClick={() => removeItem(i)}
+                      className="text-gray-400 hover:text-red-500 text-lg leading-none"
+                    >
+                      ×
+                    </button>
+                  </div>
+                ))}
+              </div>
+            )}
+            {items.length === 0 && (
+              <p className="text-xs text-gray-400 italic">No items — click + Add item to add line items.</p>
+            )}
+          </div>
+
           {error && (
             <div className="text-sm text-red-600 bg-red-50 rounded-lg px-3 py-2">{error}</div>
           )}
+
           <div className="flex gap-2 pt-2">
             <button
               onClick={onClose}
@@ -119,7 +228,7 @@ export default function EditReceiptModal({ receipt, onClose, onSaved }: Props) {
               disabled={saving}
               className="flex-1 bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700 disabled:opacity-50"
             >
-              {saving ? "Saving…" : "Save"}
+              {saving ? "Saving…" : "Save Changes"}
             </button>
           </div>
         </div>
