@@ -8,8 +8,10 @@ import UploadDropzone from "@/components/UploadDropzone";
 import ReceiptDetail from "@/components/ReceiptDetail";
 import ManualReceiptModal from "@/components/ManualReceiptModal";
 import FilterBar from "@/components/FilterBar";
-import SpendingChart from "@/components/SpendingChart";
 import BudgetModal from "@/components/BudgetModal";
+import dynamic from "next/dynamic";
+
+const SpendingChart = dynamic(() => import("@/components/SpendingChart"), { ssr: false });
 import { ToastProvider } from "@/components/Toast";
 
 function AppContent() {
