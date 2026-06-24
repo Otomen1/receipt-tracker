@@ -9,10 +9,10 @@ import ReceiptDetail from "@/components/ReceiptDetail";
 import ManualReceiptModal from "@/components/ManualReceiptModal";
 import FilterBar from "@/components/FilterBar";
 import BudgetModal from "@/components/BudgetModal";
+import { ToastProvider } from "@/components/Toast";
 import dynamic from "next/dynamic";
 
 const SpendingChart = dynamic(() => import("@/components/SpendingChart"), { ssr: false });
-import { ToastProvider } from "@/components/Toast";
 
 function AppContent() {
   const [receipts, setReceipts] = useState<Receipt[]>([]);
