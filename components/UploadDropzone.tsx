@@ -108,24 +108,44 @@ export default function UploadDropzone({ onClose, onSaved }: Props) {
 
         <div className="p-5">
           {!extracted && !uploading && (
-            <label
-              onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
-              onDragLeave={() => setDragging(false)}
-              onDrop={handleDrop}
-              className={`flex flex-col items-center justify-center border-2 border-dashed rounded-xl py-12 cursor-pointer transition-colors ${
-                dragging ? "border-blue-400 bg-blue-50" : "border-gray-200 hover:border-gray-300"
-              }`}
-            >
-              <span className="text-4xl mb-3">📎</span>
-              <p className="text-sm font-medium text-gray-700">Drag & drop a receipt</p>
-              <p className="text-xs text-gray-400 mt-1">or click to browse • PDF, JPEG, PNG</p>
-              <input
-                type="file"
-                accept=".pdf,.jpg,.jpeg,.png"
-                className="hidden"
-                onChange={handleFileInput}
-              />
-            </label>
+            <div className="space-y-3">
+              <label
+                onDragOver={(e) => { e.preventDefault(); setDragging(true); }}
+                onDragLeave={() => setDragging(false)}
+                onDrop={handleDrop}
+                className={`flex flex-col items-center justify-center border-2 border-dashed rounded-xl py-10 cursor-pointer transition-colors ${
+                  dragging ? "border-blue-400 bg-blue-50" : "border-gray-200 hover:border-gray-300"
+                }`}
+              >
+                <span className="text-4xl mb-3">📎</span>
+                <p className="text-sm font-medium text-gray-700">Drag & drop a receipt</p>
+                <p className="text-xs text-gray-400 mt-1">or click to browse • PDF, JPEG, PNG</p>
+                <input
+                  type="file"
+                  accept=".pdf,.jpg,.jpeg,.png"
+                  className="hidden"
+                  onChange={handleFileInput}
+                />
+              </label>
+
+              <div className="flex items-center gap-3">
+                <div className="flex-1 border-t border-gray-100" />
+                <span className="text-xs text-gray-400">or</span>
+                <div className="flex-1 border-t border-gray-100" />
+              </div>
+
+              <label className="flex items-center justify-center gap-2 w-full border border-gray-200 rounded-xl py-3 cursor-pointer hover:bg-gray-50 transition-colors">
+                <span className="text-lg">📷</span>
+                <span className="text-sm font-medium text-gray-700">Scan with Camera</span>
+                <input
+                  type="file"
+                  accept="image/*"
+                  capture="environment"
+                  className="hidden"
+                  onChange={handleFileInput}
+                />
+              </label>
+            </div>
           )}
 
           {uploading && (
