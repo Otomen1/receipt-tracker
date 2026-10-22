@@ -1,0 +1,31 @@
+{
+  "merchant": "SAMPLE GROCERY STORE",
+  "receipt_date": "2025-02-28",
+  "total": "18.40",
+  "currency": "MYR",
+  "category": "Groceries",
+  "items": [
+    {
+      "name": "FRESH MILK 1L",
+      "quantity": "2",
+      "price": "5.50",
+      "line_amount": "11.00"
+    },
+    {
+      "name": "WHITE RICE 1KG",
+      "quantity": "1",
+      "price": "8.90",
+      "line_amount": "8.90"
+    },
+    {
+      "name": "FREE GIFT",
+      "quantity": "1",
+      "price": "0.00",
+      "line_amount": "0.00"
+    }
+  ],
+  "sst_amount": "0.00",
+  "discount": "1.50",
+  "payment_method": "Cash",
+  "raw_text": "SAMPLE GROCERY STORE\nDATE 28/02/2025\nITEM QTY UNIT AMOUNT\nFRESH MILK 1L\n2 X 5.50 11.00\nWHITE RICE 1KG\n1 X 8.90 8.90\nFREE GIFT\n1 X 0.00 0.00\nSUBTOTAL 19.90\nDISCOUNT 1.50\nSST 0.00\nGRAND TOTAL RM 18.40\nPAID BY CASH\nNOT A PURCHASE / BUKAN PEMBELIAN"
+}

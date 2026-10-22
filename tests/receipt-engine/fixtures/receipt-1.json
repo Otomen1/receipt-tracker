@@ -1,0 +1,31 @@
+{
+  "merchant": "RESTORAN UJIAN CERIA",
+  "receipt_date": "2025-02-28",
+  "total": "20.50",
+  "currency": "MYR",
+  "category": "Restaurant",
+  "items": [
+    {
+      "name": "NASI GORENG",
+      "quantity": "2",
+      "price": "5.50",
+      "line_amount": "11.00"
+    },
+    {
+      "name": "TEH AIS",
+      "quantity": "1",
+      "price": "8.90",
+      "line_amount": "8.90"
+    },
+    {
+      "name": "HADIAH PERCUMA",
+      "quantity": "1",
+      "price": "0.00",
+      "line_amount": "0.00"
+    }
+  ],
+  "sst_amount": "0.60",
+  "discount": "0.00",
+  "payment_method": "Cash",
+  "raw_text": "RESTORAN UJIAN CERIA\nTARIKH 28/02/2025\nITEM QTY UNIT AMOUNT\nNASI GORENG  2  5.50  11.00\nTEH AIS  1  8.90  8.90\nHADIAH PERCUMA  1  0.00  0.00\nSUBTOTAL 19.90\nDISKAUN 0.00\nSST 0.60\nJUMLAH RM 20.50\nBAYARAN TUNAI\nNOT A PURCHASE / BUKAN PEMBELIAN"
+}
