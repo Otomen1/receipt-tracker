@@ -1,6 +1,6 @@
 import type { BinaryPage, Candidate, EngineOptions, Glyph, Quad, TemplateBank, TextLine } from "./contracts";
 import { mapPoint } from "./geometry";
-import { cropGlyph, segment } from "./segment";
+import { segment } from "./segment";
 
 /** Aspect-preserving nearest-neighbor normalization; no character-specific rules. */
 export function normalizeBitmap(data: Uint8Array, width: number, height: number, outWidth: number, outHeight: number): Uint8Array {
@@ -57,8 +57,8 @@ export function recognize(page: BinaryPage, bank: TemplateBank, options: EngineO
   return segments.slice(0, sampleLines).map((line, id) => {
     const glyphs: Glyph[] = line.glyphs.map(proposal => {
       options.checkpoint?.();
-      const { box } = proposal, crop = cropGlyph(page, box);
-      const candidates = match(crop.data, crop.width, crop.height, line.nominalHeight);
+      const { box } = proposal;
+      const candidates = match(proposal.ink, box.width, box.height, line.nominalHeight);
       const top = candidates[0], margin = (candidates[1]?.distance ?? 1) - top.distance;
       const known = top.score >= (options.minGlyphScore ?? .75) && margin >= (options.minGlyphMargin ?? .015);
       const inputQuad = [[box.x, box.y], [box.x + box.width - 1, box.y], [box.x + box.width - 1, box.y + box.height - 1], [box.x, box.y + box.height - 1]].map(([x, y]) => mapPoint(page.toInput, x, y)) as Quad;

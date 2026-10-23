@@ -127,6 +127,13 @@ test('a connected scan frame does not collapse all receipt text into one band',a
   assert.equal(result.data.merchant,'SAMPLE GROCERY STORE');assert.equal(result.data.total,18.4);
   assert.ok(result.diagnostics.operations.some(s=>s.startsWith('suppress_graphics:')));assert.ok(result.lines.length>10);
 });
+test('one isolated speckle per row cannot join independent text lines',async()=>{
+  const image=await decodeReceiptImage(fs.readFileSync(path.join(__dirname,'fixtures/receipt-0.png')));
+  for(let y=0;y<image.height;y++)image.data[y*image.width+(y%2?2:10)]=0;
+  const result=recognizeReceipt(image,templates,{orientation:0,deskew:false});
+  assert.equal(result.data.merchant,'SAMPLE GROCERY STORE');assert.equal(result.data.total,18.4);
+  assert.ok(result.lines.length>10);assert.ok(result.lines.every(line=>line.box.height<50));
+});
 test('isolated worker has a hard deadline and supports caller cancellation',async()=>{
   const bytes=fs.readFileSync(path.join(__dirname,'fixtures/receipt-0.png'));
   await assert.rejects(recognizeImageIsolated(bytes,templates,{},1),/deadline exceeded/);
