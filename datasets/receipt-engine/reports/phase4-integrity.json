@@ -1,0 +1,10 @@
+{
+  "template_bank_reproduced": true,
+  "font_sha256": "c805f9436dbc268644c1d9584f01a601a653e028e08fd74b9b949f6cf8304d88",
+  "template_sha256": "5b72e6f8bb156807e055d1c33702afabbbbd945f523d38a4de33d4ca2b718a64",
+  "real_reviewed_glyphs": 0,
+  "images_hash_verified": 60,
+  "source_annotations_hash_verified": 20,
+  "encoded_duplicate_groups": [],
+  "release_ready": false
+}

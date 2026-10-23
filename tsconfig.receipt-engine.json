@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": ".receipt-engine-build",
+    "rootDir": ".",
+    "noEmit": false,
+    "incremental": false,
+    "isolatedModules": true
+  },
+  "include": ["lib/receipt-engine/**/*.ts", "lib/receipt-input/**/*.ts", "scripts/receipt-engine/*.ts"],
+  "exclude": ["node_modules", ".next", ".receipt-engine-build"]
+}

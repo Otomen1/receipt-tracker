@@ -1,0 +1,12 @@
+{
+  "templates": 492,
+  "characters": 82,
+  "source_split": "development",
+  "real_reviewed_glyphs": 0,
+  "template_sha256": "5b72e6f8bb156807e055d1c33702afabbbbd945f523d38a4de33d4ca2b718a64",
+  "python_renderer": {
+    "pillow": "12.3.0",
+    "freetype": "2.14.3"
+  },
+  "not_a_pretrained_model": true
+}

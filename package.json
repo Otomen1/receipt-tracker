@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:receipt-engine": "tsc -p tsconfig.receipt-engine.json",
+    "test:receipt-engine": "npm run build:receipt-engine && node --test tests/receipt-engine/*.test.cjs",
+    "recognize:offline": "node .receipt-engine-build/scripts/receipt-engine/run.js"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",

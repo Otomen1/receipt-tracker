@@ -1,0 +1,12 @@
+{
+  "parents": 8,
+  "images": 40,
+  "split": "development",
+  "font_sha256": "c805f9436dbc268644c1d9584f01a601a653e028e08fd74b9b949f6cf8304d88",
+  "generator_sha256": "86b643343691e4836217b4d4aca3a1b51858bfcf65a9b7c59544a12212d829b9",
+  "manifest_sha256": "ba15066a84f9e357073577347be0820f8156324cd654438760ffe0b9d7556bba",
+  "pillow": "12.3.0",
+  "freetype": "2.14.3",
+  "real_accuracy": null,
+  "note": "New Phase 4 development fixtures, not the lost Phase 3 dataset or held-out evaluation."
+}

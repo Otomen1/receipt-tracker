@@ -2,3 +2,7 @@
 node_modules/
 .env.local
 *.tsbuildinfo
+.receipt-engine-build/
+datasets/receipt-engine/local/
+scripts/receipt-engine/__pycache__/
+tests/receipt-engine/__pycache__/
