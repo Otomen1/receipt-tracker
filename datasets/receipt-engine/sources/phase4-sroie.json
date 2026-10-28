@@ -1,0 +1,36 @@
+{
+  "repo": "jsdnrs/ICDAR2019-SROIE",
+  "revision": "bffe40c26759f3376ec2b3ae9031dbba54cd587c",
+  "license": "CC-BY-4.0",
+  "documents": [
+    {
+      "path": "datasets/receipt-engine/licenses/sroie/README.md",
+      "sha256": "5378251883667a341bd6cdf5e8a4dab7139a0fd9f653de8286001a5294fa3066",
+      "url": "https://huggingface.co/datasets/jsdnrs/ICDAR2019-SROIE/resolve/bffe40c26759f3376ec2b3ae9031dbba54cd587c/README.md"
+    },
+    {
+      "path": "datasets/receipt-engine/licenses/sroie/LICENSE",
+      "sha256": "9ba9550ad48438d0836ddab3da480b3b69ffa0aac7b7878b5a0039e7ab429411",
+      "url": "https://huggingface.co/datasets/jsdnrs/ICDAR2019-SROIE/resolve/bffe40c26759f3376ec2b3ae9031dbba54cd587c/LICENSE"
+    },
+    {
+      "path": "datasets/receipt-engine/licenses/sroie/NOTICE",
+      "sha256": "c2684a420dacbd6db6f310004f2024523c3d570af2c636d77a800d47fdcb2283",
+      "url": "https://huggingface.co/datasets/jsdnrs/ICDAR2019-SROIE/resolve/bffe40c26759f3376ec2b3ae9031dbba54cd587c/NOTICE"
+    }
+  ],
+  "archive": {
+    "path": "data/train-00000-of-00001.parquet",
+    "sha256": "b18c16b4d8481e5e4537a1700e4616907fe4acd92d6362a7e430b0e866213887",
+    "bytes": 318620215
+  },
+  "source_train_rows": 626,
+  "pilot_receipts": 20,
+  "manifest_sha256": "20e79225405a9a8b581dba8534d03ca624cf1e894beb4dcad5a1ff57713b069b",
+  "selection": "One lowest-hash source ID per development merchant, then first 20 merchant SHA-256 hashes.",
+  "independently_verified_labels": false,
+  "official_test_archive_downloaded": false,
+  "project_validation_images_materialized": false,
+  "archive_contains_all_source_training_rows": true,
+  "preparer_sha256": "95067dd5feba063c039b7ceb80c28b173bef072320921a7d8d0e2ad03a9dfea3"
+}

@@ -1,0 +1,4075 @@
+{
+  "schema": "receipt-phase4-development-benchmark/v1",
+  "status": "measured_development_diagnostics",
+  "engine": "custom-classical-v1",
+  "created_at": "2026-10-22T06:04:29.478Z",
+  "selected_receipts": 40,
+  "attempted_receipts": 40,
+  "manifest_sha256": "ba15066a84f9e357073577347be0820f8156324cd654438760ffe0b9d7556bba",
+  "template_sha256": "5b72e6f8bb156807e055d1c33702afabbbbd945f523d38a4de33d4ca2b718a64",
+  "scorer_sha256": "8a0b501ef415245d7137ab9cd36d7d4eaed70f67c4afce6bc6634759067ef9c6",
+  "engine_sha256": {
+    "lib/receipt-engine/contracts.ts": "221010e7fa0e4142c67f2b4f39e8f7ad7d99c59bb20501958e9a3d479c0e9be6",
+    "lib/receipt-engine/decimal.ts": "a482400de84a5f07045fe018a02f2d91c3e678eb847a0d1f5a3c5da8fe12b1e3",
+    "lib/receipt-engine/extract.ts": "34171d5fd5fa006af4561d0c5057f6713790dc5d48518623919938964110cfc9",
+    "lib/receipt-engine/geometry.ts": "badb6b3381d5b8b0202822df36a6459b7ae5be36e6a907b072da1a47bb1082d5",
+    "lib/receipt-engine/index.ts": "dfee3e801bd061ebd224c9e446cb650632d0ef0dff38f906558e14a78dae14d7",
+    "lib/receipt-engine/layout.ts": "7a829151edaa55d39871c792a19e4384c527ba5284646a1d0d517dac5b23923c",
+    "lib/receipt-engine/output.ts": "84ef7ccac377cda798047ca17c93b8d9697226627b7ec252b8c9be51dc386f45",
+    "lib/receipt-engine/preprocess.ts": "2bdd3f31019cfe11f38fdc9dd6042a788b914ceb2a42c962b9db457e4581f5a1",
+    "lib/receipt-engine/recognize.ts": "2210d6e57be5d025135acbe92c3702eb30b037f6af3cdda190ba29960219e9e8",
+    "lib/receipt-engine/segment.ts": "86a308d78d49e22287ea29f440be076b16dd0a7c7558966f07eeca35a812da92",
+    "lib/receipt-engine/validate.ts": "335d866b1819f9ec9a62c091f7ea64fed084e26fadcb42f87c42bb7be4a1278e",
+    "lib/receipt-input/image.ts": "491d6ff1546c11189d8442a52ea05d480162d0d2aad8ec79ba29b5f20210e840",
+    "lib/receipt-input/isolated.ts": "0fb8531b92c86c8e7f1a93edc31dbb548b1b626a9414f9a675dfca7bdd48befc",
+    "lib/receipt-input/worker.ts": "d3ad72b2d55c436afe642e665b638a0b2c4b92163a055da367815f716f018767"
+  },
+  "network_guard_enabled": true,
+  "source_annotation_states": [
+    "synthetic_render_spec"
+  ],
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus": 9,
+    "concurrency": 1
+  },
+  "metrics": {
+    "receipts": 40,
+    "fields": {
+      "merchant": {
+        "correct": 14,
+        "total": 40,
+        "accuracy": 0.35
+      },
+      "receipt_date": {
+        "correct": 34,
+        "total": 40,
+        "accuracy": 0.85
+      },
+      "total": {
+        "correct": 33,
+        "total": 40,
+        "accuracy": 0.825
+      },
+      "currency": {
+        "correct": 40,
+        "total": 40,
+        "accuracy": 1
+      },
+      "category": {
+        "correct": 14,
+        "total": 40,
+        "accuracy": 0.35
+      },
+      "sst_amount": {
+        "correct": 18,
+        "total": 40,
+        "accuracy": 0.45
+      },
+      "discount": {
+        "correct": 23,
+        "total": 40,
+        "accuracy": 0.575
+      },
+      "payment_method": {
+        "correct": 24,
+        "total": 40,
+        "accuracy": 0.6
+      }
+    },
+    "items": {
+      "name": {
+        "correct": 61,
+        "total": 121,
+        "accuracy": 0.5041322314049587
+      },
+      "quantity": {
+        "correct": 62,
+        "total": 121,
+        "accuracy": 0.512396694214876
+      },
+      "price": {
+        "correct": 62,
+        "total": 121,
+        "accuracy": 0.512396694214876
+      },
+      "line_amount": {
+        "correct": 62,
+        "total": 121,
+        "accuracy": 0.512396694214876
+      }
+    },
+    "text": {
+      "characters": 10155,
+      "character_errors": 626,
+      "words": 1855,
+      "word_errors": 374,
+      "CER": 0.06164451009354997,
+      "WER": 0.20161725067385444
+    },
+    "core_complete": {
+      "eligible": 40,
+      "correct": 12,
+      "accuracy": 0.3
+    },
+    "full_complete": {
+      "eligible": 40,
+      "correct": 12,
+      "accuracy": 0.3
+    },
+    "review_rate": 1,
+    "processing_failures": 0,
+    "performance": {
+      "wall_ms": {
+        "samples": 40,
+        "p50": 1150.289872,
+        "p95": 1432.967802,
+        "max": 1481.272302
+      },
+      "cpu_ms": {
+        "samples": 40,
+        "p50": 1437.274,
+        "p95": 1804.143,
+        "max": 1833.859
+      },
+      "peak_rss_kib": {
+        "samples": 40,
+        "p50": 114816,
+        "p95": 135840,
+        "max": 139520
+      }
+    }
+  },
+  "slices": {
+    "clean": {
+      "receipts": 8,
+      "fields": {
+        "merchant": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "receipt_date": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "total": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "currency": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "category": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "sst_amount": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "discount": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "payment_method": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        },
+        "quantity": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        },
+        "price": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        },
+        "line_amount": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        }
+      },
+      "text": {
+        "characters": 2031,
+        "character_errors": 57,
+        "words": 371,
+        "word_errors": 26,
+        "CER": 0.028064992614475627,
+        "WER": 0.07008086253369272
+      },
+      "core_complete": {
+        "eligible": 8,
+        "correct": 4,
+        "accuracy": 0.5
+      },
+      "full_complete": {
+        "eligible": 8,
+        "correct": 4,
+        "accuracy": 0.5
+      },
+      "review_rate": 1,
+      "processing_failures": 0,
+      "performance": {
+        "wall_ms": {
+          "samples": 8,
+          "p50": 1172.420525,
+          "p95": 1481.272302,
+          "max": 1481.272302
+        },
+        "cpu_ms": {
+          "samples": 8,
+          "p50": 1460.312,
+          "p95": 1819.756,
+          "max": 1819.756
+        },
+        "peak_rss_kib": {
+          "samples": 8,
+          "p50": 114244,
+          "p95": 134256,
+          "max": 134256
+        }
+      }
+    },
+    "blur": {
+      "receipts": 8,
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 8,
+          "accuracy": 0
+        },
+        "receipt_date": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "total": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "currency": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 8,
+          "accuracy": 0
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 8,
+          "accuracy": 0
+        },
+        "discount": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "payment_method": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 24,
+          "accuracy": 0.125
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 24,
+          "accuracy": 0.125
+        },
+        "price": {
+          "correct": 3,
+          "total": 24,
+          "accuracy": 0.125
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 24,
+          "accuracy": 0.125
+        }
+      },
+      "text": {
+        "characters": 2031,
+        "character_errors": 197,
+        "words": 371,
+        "word_errors": 140,
+        "CER": 0.09699655342195962,
+        "WER": 0.37735849056603776
+      },
+      "core_complete": {
+        "eligible": 8,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "full_complete": {
+        "eligible": 8,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "review_rate": 1,
+      "processing_failures": 0,
+      "performance": {
+        "wall_ms": {
+          "samples": 8,
+          "p50": 1136.7247439999999,
+          "p95": 1289.0111040000002,
+          "max": 1289.0111040000002
+        },
+        "cpu_ms": {
+          "samples": 8,
+          "p50": 1385.663,
+          "p95": 1573.916,
+          "max": 1573.916
+        },
+        "peak_rss_kib": {
+          "samples": 8,
+          "p50": 108916,
+          "p95": 139520,
+          "max": 139520
+        }
+      }
+    },
+    "faded": {
+      "receipts": 8,
+      "fields": {
+        "merchant": {
+          "correct": 5,
+          "total": 8,
+          "accuracy": 0.625
+        },
+        "receipt_date": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "total": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "currency": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "category": {
+          "correct": 5,
+          "total": 8,
+          "accuracy": 0.625
+        },
+        "sst_amount": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "discount": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "payment_method": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 20,
+          "total": 25,
+          "accuracy": 0.8
+        },
+        "quantity": {
+          "correct": 20,
+          "total": 25,
+          "accuracy": 0.8
+        },
+        "price": {
+          "correct": 20,
+          "total": 25,
+          "accuracy": 0.8
+        },
+        "line_amount": {
+          "correct": 20,
+          "total": 25,
+          "accuracy": 0.8
+        }
+      },
+      "text": {
+        "characters": 2031,
+        "character_errors": 46,
+        "words": 371,
+        "word_errors": 17,
+        "CER": 0.022648941408173313,
+        "WER": 0.04582210242587601
+      },
+      "core_complete": {
+        "eligible": 8,
+        "correct": 4,
+        "accuracy": 0.5
+      },
+      "full_complete": {
+        "eligible": 8,
+        "correct": 4,
+        "accuracy": 0.5
+      },
+      "review_rate": 1,
+      "processing_failures": 0,
+      "performance": {
+        "wall_ms": {
+          "samples": 8,
+          "p50": 1141.3537649999998,
+          "p95": 1475.4444070000002,
+          "max": 1475.4444070000002
+        },
+        "cpu_ms": {
+          "samples": 8,
+          "p50": 1404.052,
+          "p95": 1833.859,
+          "max": 1833.859
+        },
+        "peak_rss_kib": {
+          "samples": 8,
+          "p50": 112460,
+          "p95": 137992,
+          "max": 137992
+        }
+      }
+    },
+    "rotated": {
+      "receipts": 8,
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 8,
+          "accuracy": 0.125
+        },
+        "receipt_date": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "total": {
+          "correct": 3,
+          "total": 8,
+          "accuracy": 0.375
+        },
+        "currency": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 8,
+          "accuracy": 0.125
+        },
+        "sst_amount": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        },
+        "discount": {
+          "correct": 3,
+          "total": 8,
+          "accuracy": 0.375
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 8,
+          "accuracy": 0
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 24,
+          "accuracy": 0
+        },
+        "quantity": {
+          "correct": 1,
+          "total": 24,
+          "accuracy": 0.041666666666666664
+        },
+        "price": {
+          "correct": 1,
+          "total": 24,
+          "accuracy": 0.041666666666666664
+        },
+        "line_amount": {
+          "correct": 1,
+          "total": 24,
+          "accuracy": 0.041666666666666664
+        }
+      },
+      "text": {
+        "characters": 2031,
+        "character_errors": 269,
+        "words": 371,
+        "word_errors": 165,
+        "CER": 0.13244707040866568,
+        "WER": 0.444743935309973
+      },
+      "core_complete": {
+        "eligible": 8,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "full_complete": {
+        "eligible": 8,
+        "correct": 0,
+        "accuracy": 0
+      },
+      "review_rate": 1,
+      "processing_failures": 0,
+      "performance": {
+        "wall_ms": {
+          "samples": 8,
+          "p50": 1138.1747699999999,
+          "p95": 1355.511849,
+          "max": 1355.511849
+        },
+        "cpu_ms": {
+          "samples": 8,
+          "p50": 1356.899,
+          "p95": 1644.567,
+          "max": 1644.567
+        },
+        "peak_rss_kib": {
+          "samples": 8,
+          "p50": 129136,
+          "p95": 135840,
+          "max": 135840
+        }
+      }
+    },
+    "upside_down": {
+      "receipts": 8,
+      "fields": {
+        "merchant": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "receipt_date": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "total": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "currency": {
+          "correct": 8,
+          "total": 8,
+          "accuracy": 1
+        },
+        "category": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "sst_amount": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "discount": {
+          "correct": 4,
+          "total": 8,
+          "accuracy": 0.5
+        },
+        "payment_method": {
+          "correct": 6,
+          "total": 8,
+          "accuracy": 0.75
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        },
+        "quantity": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        },
+        "price": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        },
+        "line_amount": {
+          "correct": 19,
+          "total": 24,
+          "accuracy": 0.7916666666666666
+        }
+      },
+      "text": {
+        "characters": 2031,
+        "character_errors": 57,
+        "words": 371,
+        "word_errors": 26,
+        "CER": 0.028064992614475627,
+        "WER": 0.07008086253369272
+      },
+      "core_complete": {
+        "eligible": 8,
+        "correct": 4,
+        "accuracy": 0.5
+      },
+      "full_complete": {
+        "eligible": 8,
+        "correct": 4,
+        "accuracy": 0.5
+      },
+      "review_rate": 1,
+      "processing_failures": 0,
+      "performance": {
+        "wall_ms": {
+          "samples": 8,
+          "p50": 1108.704466,
+          "p95": 1432.967802,
+          "max": 1432.967802
+        },
+        "cpu_ms": {
+          "samples": 8,
+          "p50": 1359.289,
+          "p95": 1804.143,
+          "max": 1804.143
+        },
+        "peak_rss_kib": {
+          "samples": 8,
+          "p50": 112708,
+          "p95": 135560,
+          "max": 135560
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "phase4-synthetic:00:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 244,
+        "character_errors": 0,
+        "words": 48,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1073.009673,
+        "cpu_ms": 1414.702,
+        "peak_rss_kib": 115808,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:00:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 244,
+        "character_errors": 31,
+        "words": 48,
+        "word_errors": 25
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 21,
+      "warnings": [
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "21 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics."
+      ],
+      "measurement": {
+        "wall_ms": 1078.345925,
+        "cpu_ms": 1310.835,
+        "peak_rss_kib": 107656,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:00:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 244,
+        "character_errors": 0,
+        "words": 48,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1024.853392,
+        "cpu_ms": 1342.33,
+        "peak_rss_kib": 112460,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:00:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 244,
+        "character_errors": 40,
+        "words": 48,
+        "word_errors": 26
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 36,
+      "warnings": [
+        "Unreadable product name on line 7; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "36 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: numeric-context character correction requires review."
+      ],
+      "measurement": {
+        "wall_ms": 1091.010199,
+        "cpu_ms": 1279.703,
+        "peak_rss_kib": 115760,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:00:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 244,
+        "character_errors": 0,
+        "words": 48,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1044.594535,
+        "cpu_ms": 1351.114,
+        "peak_rss_kib": 110040,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:01:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 240,
+        "character_errors": 9,
+        "words": 41,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1172.420525,
+        "cpu_ms": 1460.312,
+        "peak_rss_kib": 110448,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:01:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 240,
+        "character_errors": 27,
+        "words": 41,
+        "word_errors": 15
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 9,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "9 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 39.80; total is 20.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1109.767589,
+        "cpu_ms": 1357.904,
+        "peak_rss_kib": 108916,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:01:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 240,
+        "character_errors": 9,
+        "words": 41,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1117.4408910000002,
+        "cpu_ms": 1391.94,
+        "peak_rss_kib": 107000,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:01:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 240,
+        "character_errors": 47,
+        "words": 41,
+        "word_errors": 25
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 34,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "34 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics."
+      ],
+      "measurement": {
+        "wall_ms": 1183.703917,
+        "cpu_ms": 1503.063,
+        "peak_rss_kib": 110784,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:01:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 240,
+        "character_errors": 9,
+        "words": 41,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1432.967802,
+        "cpu_ms": 1804.143,
+        "peak_rss_kib": 114816,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:02:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 286,
+        "character_errors": 0,
+        "words": 54,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1481.272302,
+        "cpu_ms": 1819.756,
+        "peak_rss_kib": 134240,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:02:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 286,
+        "character_errors": 32,
+        "words": 54,
+        "word_errors": 24
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 18,
+      "warnings": [
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Unreadable product name on line 13; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "18 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics."
+      ],
+      "measurement": {
+        "wall_ms": 1289.0111040000002,
+        "cpu_ms": 1573.916,
+        "peak_rss_kib": 131172,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:02:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 286,
+        "character_errors": 0,
+        "words": 54,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1475.4444070000002,
+        "cpu_ms": 1833.859,
+        "peak_rss_kib": 137992,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:02:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 286,
+        "character_errors": 43,
+        "words": 54,
+        "word_errors": 28
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 39,
+      "warnings": [
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "39 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics."
+      ],
+      "measurement": {
+        "wall_ms": 1343.8220210000002,
+        "cpu_ms": 1596.391,
+        "peak_rss_kib": 134712,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:02:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 286,
+        "character_errors": 0,
+        "words": 54,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1327.28942,
+        "cpu_ms": 1624.911,
+        "peak_rss_kib": 135560,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:03:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 237,
+        "character_errors": 0,
+        "words": 44,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1236.4931960000001,
+        "cpu_ms": 1503.279,
+        "peak_rss_kib": 107336,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:03:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 237,
+        "character_errors": 22,
+        "words": 44,
+        "word_errors": 17
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 14,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "14 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 39.80; total is 20.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1167.947445,
+        "cpu_ms": 1483.481,
+        "peak_rss_kib": 109172,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:03:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 237,
+        "character_errors": 0,
+        "words": 44,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1150.289872,
+        "cpu_ms": 1468.114,
+        "peak_rss_kib": 112944,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:03:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 237,
+        "character_errors": 36,
+        "words": 44,
+        "word_errors": 24
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 34,
+      "warnings": [
+        "Unreadable product name on line 7; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "34 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: numeric-context character correction requires review.",
+        "Printed items/tax/discount give 9.50; total is 20.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1138.1747699999999,
+        "cpu_ms": 1355.047,
+        "peak_rss_kib": 123104,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:03:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 3,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 3,
+          "total": 3
+        },
+        "price": {
+          "correct": 3,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 3,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 237,
+        "character_errors": 0,
+        "words": 44,
+        "word_errors": 0
+      },
+      "core_complete": true,
+      "full_complete": true,
+      "review": true,
+      "confidence": "medium",
+      "unknown_glyphs": 0,
+      "warnings": [],
+      "measurement": {
+        "wall_ms": 1095.888146,
+        "cpu_ms": 1327.107,
+        "peak_rss_kib": 112708,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:04:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 251,
+        "character_errors": 17,
+        "words": 45,
+        "word_errors": 7
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 8,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "8 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.50; total is 11.00. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1150.530463,
+        "cpu_ms": 1437.274,
+        "peak_rss_kib": 114244,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:04:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 251,
+        "character_errors": 27,
+        "words": 45,
+        "word_errors": 16
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 14,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "14 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.50; total is 11.00. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1136.7247439999999,
+        "cpu_ms": 1385.663,
+        "peak_rss_kib": 107440,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:04:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 251,
+        "character_errors": 15,
+        "words": 45,
+        "word_errors": 5
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 6,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "6 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 23.50; total is 11.00. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1208.496064,
+        "cpu_ms": 1449.639,
+        "peak_rss_kib": 110324,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:04:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 251,
+        "character_errors": 34,
+        "words": 45,
+        "word_errors": 18
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 20,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "20 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.50; total is 11.00. No balancing values were invented.",
+        "A summary amount used a visually supported alternative character; review required."
+      ],
+      "measurement": {
+        "wall_ms": 1355.511849,
+        "cpu_ms": 1593.586,
+        "peak_rss_kib": 130060,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:04:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 251,
+        "character_errors": 17,
+        "words": 45,
+        "word_errors": 7
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 8,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "8 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.50; total is 11.00. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1108.704466,
+        "cpu_ms": 1359.289,
+        "peak_rss_kib": 105568,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:05:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 1,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 1,
+          "total": 3
+        },
+        "price": {
+          "correct": 1,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 1,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 282,
+        "character_errors": 7,
+        "words": 50,
+        "word_errors": 6
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 7,
+      "warnings": [
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 13; no name invented.",
+        "Unreadable product name on line 14; no name invented.",
+        "Unreadable product name on line 15; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "7 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 7: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.35; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1175.921689,
+        "cpu_ms": 1460.424,
+        "peak_rss_kib": 134256,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:05:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 282,
+        "character_errors": 17,
+        "words": 50,
+        "word_errors": 15
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 15,
+      "warnings": [
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Unreadable product name on line 13; no name invented.",
+        "Unreadable product name on line 14; no name invented.",
+        "Unreadable product name on line 15; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "15 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 7: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.35; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1245.071521,
+        "cpu_ms": 1520.754,
+        "peak_rss_kib": 139520,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:05:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 4
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 4
+        },
+        "price": {
+          "correct": 2,
+          "total": 4
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 4
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 282,
+        "character_errors": 2,
+        "words": 50,
+        "word_errors": 2
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 2,
+      "warnings": [
+        "Unreadable product name on line 13; no name invented.",
+        "2 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.75; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1141.3537649999998,
+        "cpu_ms": 1350.138,
+        "peak_rss_kib": 131916,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:05:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 1,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 1,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 282,
+        "character_errors": 9,
+        "words": 50,
+        "word_errors": 7
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 8,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "8 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 3: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 13.85; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1119.24847,
+        "cpu_ms": 1356.899,
+        "peak_rss_kib": 134516,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:05:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 1,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 1,
+          "total": 3
+        },
+        "price": {
+          "correct": 1,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 1,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 282,
+        "character_errors": 7,
+        "words": 50,
+        "word_errors": 6
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 7,
+      "warnings": [
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 13; no name invented.",
+        "Unreadable product name on line 14; no name invented.",
+        "Unreadable product name on line 15; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "7 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 7: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 26.35; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1121.115574,
+        "cpu_ms": 1434.262,
+        "peak_rss_kib": 133864,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:06:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 248,
+        "character_errors": 8,
+        "words": 48,
+        "word_errors": 7
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 8,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Unreadable product name on line 11; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "8 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.00; total is 12.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1074.4464839999998,
+        "cpu_ms": 1306.964,
+        "peak_rss_kib": 131076,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:06:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 248,
+        "character_errors": 18,
+        "words": 48,
+        "word_errors": 16
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 14,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Unreadable product name on line 11; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "14 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.00; total is 12.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1053.470911,
+        "cpu_ms": 1332.89,
+        "peak_rss_kib": 132096,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:06:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 248,
+        "character_errors": 5,
+        "words": 48,
+        "word_errors": 5
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 5,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "5 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.00; total is 12.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1131.573574,
+        "cpu_ms": 1404.052,
+        "peak_rss_kib": 132464,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:06:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 1,
+          "total": 3
+        },
+        "price": {
+          "correct": 1,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 1,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 248,
+        "character_errors": 29,
+        "words": 48,
+        "word_errors": 21
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 23,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "23 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "A summary amount used a visually supported alternative character; review required."
+      ],
+      "measurement": {
+        "wall_ms": 1043.221014,
+        "cpu_ms": 1249.213,
+        "peak_rss_kib": 129136,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:06:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 248,
+        "character_errors": 8,
+        "words": 48,
+        "word_errors": 7
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 8,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 10; no name invented.",
+        "Unreadable product name on line 11; no name invented.",
+        "Unreadable product name on line 12; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "8 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.00; total is 12.50. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1071.130577,
+        "cpu_ms": 1337.494,
+        "peak_rss_kib": 124092,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:07:clean",
+      "source": "synthetic",
+      "variant": "clean",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 243,
+        "character_errors": 16,
+        "words": 41,
+        "word_errors": 6
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 7,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "7 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.60; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1325.1854910000002,
+        "cpu_ms": 1624.872,
+        "peak_rss_kib": 111892,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:07:blur",
+      "source": "synthetic",
+      "variant": "blur",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 1,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 1,
+          "total": 3
+        },
+        "price": {
+          "correct": 1,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 1,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 243,
+        "character_errors": 23,
+        "words": 41,
+        "word_errors": 12
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 12,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "12 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.60; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1249.681751,
+        "cpu_ms": 1525.633,
+        "peak_rss_kib": 107416,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:07:faded",
+      "source": "synthetic",
+      "variant": "faded",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 243,
+        "character_errors": 15,
+        "words": 41,
+        "word_errors": 5
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 6,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "6 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.00; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1158.424933,
+        "cpu_ms": 1471.433,
+        "peak_rss_kib": 111880,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:07:rotated",
+      "source": "synthetic",
+      "variant": "rotated",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 1,
+          "total": 1
+        },
+        "discount": {
+          "correct": 1,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 0,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 0,
+          "total": 3
+        },
+        "price": {
+          "correct": 0,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 0,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 243,
+        "character_errors": 31,
+        "words": 41,
+        "word_errors": 16
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 20,
+      "warnings": [
+        "Unreadable product name on line 4; no name invented.",
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 6; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "20 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 2: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics."
+      ],
+      "measurement": {
+        "wall_ms": 1309.840997,
+        "cpu_ms": 1644.567,
+        "peak_rss_kib": 135840,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "phase4-synthetic:07:upside_down",
+      "source": "synthetic",
+      "variant": "upside_down",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 1,
+          "total": 1
+        },
+        "total": {
+          "correct": 1,
+          "total": 1
+        },
+        "currency": {
+          "correct": 1,
+          "total": 1
+        },
+        "category": {
+          "correct": 0,
+          "total": 1
+        },
+        "sst_amount": {
+          "correct": 0,
+          "total": 1
+        },
+        "discount": {
+          "correct": 0,
+          "total": 1
+        },
+        "payment_method": {
+          "correct": 1,
+          "total": 1
+        }
+      },
+      "items": {
+        "name": {
+          "correct": 2,
+          "total": 3
+        },
+        "quantity": {
+          "correct": 2,
+          "total": 3
+        },
+        "price": {
+          "correct": 2,
+          "total": 3
+        },
+        "line_amount": {
+          "correct": 2,
+          "total": 3
+        }
+      },
+      "text": {
+        "profile": "synthetic_strict_render_text_v1",
+        "characters": 243,
+        "character_errors": 16,
+        "words": 41,
+        "word_errors": 6
+      },
+      "core_complete": false,
+      "full_complete": false,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 7,
+      "warnings": [
+        "Unreadable product name on line 5; no name invented.",
+        "Unreadable product name on line 7; no name invented.",
+        "Unreadable product name on line 8; no name invented.",
+        "Unreadable product name on line 9; no name invented.",
+        "Missing or uncertain merchant; review required.",
+        "7 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 4: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 5: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Item 6: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Printed items/tax/discount give 25.60; total is 13.10. No balancing values were invented."
+      ],
+      "measurement": {
+        "wall_ms": 1335.897514,
+        "cpu_ms": 1656.743,
+        "peak_rss_kib": 109296,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    }
+  ],
+  "errors": [],
+  "release_ready": false,
+  "legacy_comparison": null,
+  "limits": [
+    "Development data only; these cases may be used to tune this prototype.",
+    "Synthetic fixtures share the development font used to build templates.",
+    "Source labels are not independently verified. Real item/full-receipt accuracy is unavailable without annotations.",
+    "No held-out result or superiority over Mistral is established.",
+    "No cloud recognition, production upload/storage, UI flow, PDF or deployment was tested."
+  ]
+}

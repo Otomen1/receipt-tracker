@@ -1,0 +1,1108 @@
+{
+  "schema": "receipt-phase4-development-benchmark/v1",
+  "status": "measured_development_diagnostics",
+  "engine": "custom-classical-v1",
+  "created_at": "2026-10-22T06:02:21.008Z",
+  "selected_receipts": 20,
+  "attempted_receipts": 20,
+  "manifest_sha256": "20e79225405a9a8b581dba8534d03ca624cf1e894beb4dcad5a1ff57713b069b",
+  "template_sha256": "5b72e6f8bb156807e055d1c33702afabbbbd945f523d38a4de33d4ca2b718a64",
+  "scorer_sha256": "8a0b501ef415245d7137ab9cd36d7d4eaed70f67c4afce6bc6634759067ef9c6",
+  "engine_sha256": {
+    "lib/receipt-engine/contracts.ts": "221010e7fa0e4142c67f2b4f39e8f7ad7d99c59bb20501958e9a3d479c0e9be6",
+    "lib/receipt-engine/decimal.ts": "a482400de84a5f07045fe018a02f2d91c3e678eb847a0d1f5a3c5da8fe12b1e3",
+    "lib/receipt-engine/extract.ts": "34171d5fd5fa006af4561d0c5057f6713790dc5d48518623919938964110cfc9",
+    "lib/receipt-engine/geometry.ts": "badb6b3381d5b8b0202822df36a6459b7ae5be36e6a907b072da1a47bb1082d5",
+    "lib/receipt-engine/index.ts": "dfee3e801bd061ebd224c9e446cb650632d0ef0dff38f906558e14a78dae14d7",
+    "lib/receipt-engine/layout.ts": "7a829151edaa55d39871c792a19e4384c527ba5284646a1d0d517dac5b23923c",
+    "lib/receipt-engine/output.ts": "84ef7ccac377cda798047ca17c93b8d9697226627b7ec252b8c9be51dc386f45",
+    "lib/receipt-engine/preprocess.ts": "2bdd3f31019cfe11f38fdc9dd6042a788b914ceb2a42c962b9db457e4581f5a1",
+    "lib/receipt-engine/recognize.ts": "2210d6e57be5d025135acbe92c3702eb30b037f6af3cdda190ba29960219e9e8",
+    "lib/receipt-engine/segment.ts": "86a308d78d49e22287ea29f440be076b16dd0a7c7558966f07eeca35a812da92",
+    "lib/receipt-engine/validate.ts": "335d866b1819f9ec9a62c091f7ea64fed084e26fadcb42f87c42bb7be4a1278e",
+    "lib/receipt-input/image.ts": "491d6ff1546c11189d8442a52ea05d480162d0d2aad8ec79ba29b5f20210e840",
+    "lib/receipt-input/isolated.ts": "0fb8531b92c86c8e7f1a93edc31dbb548b1b626a9414f9a675dfca7bdd48befc",
+    "lib/receipt-input/worker.ts": "d3ad72b2d55c436afe642e665b638a0b2c4b92163a055da367815f716f018767"
+  },
+  "network_guard_enabled": true,
+  "source_annotation_states": [
+    "source_provided_not_independently_verified"
+  ],
+  "environment": {
+    "node": "v24.19.0",
+    "platform": "linux",
+    "cpu": "AMD EPYC 9V74 80-Core Processor",
+    "logical_cpus": 9,
+    "concurrency": 1
+  },
+  "metrics": {
+    "receipts": 20,
+    "fields": {
+      "merchant": {
+        "correct": 0,
+        "total": 20,
+        "accuracy": 0
+      },
+      "receipt_date": {
+        "correct": 0,
+        "total": 16,
+        "accuracy": 0
+      },
+      "total": {
+        "correct": 0,
+        "total": 20,
+        "accuracy": 0
+      }
+    },
+    "items": {},
+    "text": {
+      "characters": 13093,
+      "character_errors": 12301,
+      "words": 2270,
+      "word_errors": 2411,
+      "CER": 0.939509661651264,
+      "WER": 1.062114537444934
+    },
+    "core_complete": {
+      "eligible": 0,
+      "correct": 0,
+      "accuracy": null
+    },
+    "full_complete": {
+      "eligible": 0,
+      "correct": 0,
+      "accuracy": null
+    },
+    "review_rate": 1,
+    "processing_failures": 1,
+    "performance": {
+      "wall_ms": {
+        "samples": 19,
+        "p50": 2055.286548,
+        "p95": 2728.6882060000003,
+        "max": 2728.6882060000003
+      },
+      "cpu_ms": {
+        "samples": 19,
+        "p50": 2415.301,
+        "p95": 3159.657,
+        "max": 3159.657
+      },
+      "peak_rss_kib": {
+        "samples": 19,
+        "p50": 207172,
+        "p95": 278332,
+        "max": 278332
+      }
+    }
+  },
+  "slices": {
+    "original": {
+      "receipts": 20,
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 20,
+          "accuracy": 0
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 16,
+          "accuracy": 0
+        },
+        "total": {
+          "correct": 0,
+          "total": 20,
+          "accuracy": 0
+        }
+      },
+      "items": {},
+      "text": {
+        "characters": 13093,
+        "character_errors": 12301,
+        "words": 2270,
+        "word_errors": 2411,
+        "CER": 0.939509661651264,
+        "WER": 1.062114537444934
+      },
+      "core_complete": {
+        "eligible": 0,
+        "correct": 0,
+        "accuracy": null
+      },
+      "full_complete": {
+        "eligible": 0,
+        "correct": 0,
+        "accuracy": null
+      },
+      "review_rate": 1,
+      "processing_failures": 1,
+      "performance": {
+        "wall_ms": {
+          "samples": 19,
+          "p50": 2055.286548,
+          "p95": 2728.6882060000003,
+          "max": 2728.6882060000003
+        },
+        "cpu_ms": {
+          "samples": 19,
+          "p50": 2415.301,
+          "p95": 3159.657,
+          "max": 3159.657
+        },
+        "peak_rss_kib": {
+          "samples": 19,
+          "p50": 207172,
+          "p95": 278332,
+          "max": 278332
+        }
+      }
+    }
+  },
+  "results": [
+    {
+      "id": "sroie:train:X51006913051",
+      "source": "sroie",
+      "variant": "original",
+      "status": "processing_error",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 571,
+        "character_errors": 571,
+        "words": 102,
+        "word_errors": 102
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": null,
+      "warnings": [
+        "Processing failed"
+      ],
+      "measurement": null
+    },
+    {
+      "id": "sroie:train:X51006327976",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 1169,
+        "character_errors": 945,
+        "words": 195,
+        "word_errors": 193
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 437,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "437 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2259.657585,
+        "cpu_ms": 2644.962,
+        "peak_rss_kib": 207172,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006008197",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 368,
+        "character_errors": 345,
+        "words": 52,
+        "word_errors": 52
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 25,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "25 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 864.10206,
+        "cpu_ms": 1117.157,
+        "peak_rss_kib": 141084,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005806679",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 956,
+        "character_errors": 861,
+        "words": 177,
+        "word_errors": 172
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 356,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "356 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 2728.6882060000003,
+        "cpu_ms": 3159.657,
+        "peak_rss_kib": 237584,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005719902",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 631,
+        "character_errors": 581,
+        "words": 118,
+        "word_errors": 117
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 166,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "166 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2097.775242,
+        "cpu_ms": 2448.769,
+        "peak_rss_kib": 226992,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006008057",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 791,
+        "character_errors": 686,
+        "words": 140,
+        "word_errors": 138
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 306,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "306 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2055.286548,
+        "cpu_ms": 2415.301,
+        "peak_rss_kib": 222944,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005442397",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 357,
+        "character_errors": 449,
+        "words": 58,
+        "word_errors": 92
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 268,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "268 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 1276.974049,
+        "cpu_ms": 1619.488,
+        "peak_rss_kib": 213212,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51008099102",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 802,
+        "character_errors": 708,
+        "words": 141,
+        "word_errors": 138
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 321,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "321 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2509.837562,
+        "cpu_ms": 2964.947,
+        "peak_rss_kib": 253044,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006392299",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 432,
+        "character_errors": 427,
+        "words": 75,
+        "word_errors": 75
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 298,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "298 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 1776.987906,
+        "cpu_ms": 2119.463,
+        "peak_rss_kib": 168792,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005433553",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 564,
+        "character_errors": 591,
+        "words": 102,
+        "word_errors": 146
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 274,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "274 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 1353.904256,
+        "cpu_ms": 1718.265,
+        "peak_rss_kib": 211260,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006329399",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 599,
+        "character_errors": 471,
+        "words": 105,
+        "word_errors": 102
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 225,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "225 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 1559.919645,
+        "cpu_ms": 1897.997,
+        "peak_rss_kib": 203600,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006388066",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 640,
+        "character_errors": 817,
+        "words": 114,
+        "word_errors": 168
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 493,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "493 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 1928.838523,
+        "cpu_ms": 2191.348,
+        "peak_rss_kib": 156064,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005444037",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 798,
+        "character_errors": 701,
+        "words": 140,
+        "word_errors": 139
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 284,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "284 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2300.296506,
+        "cpu_ms": 2660.806,
+        "peak_rss_kib": 231392,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005712039",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 431,
+        "character_errors": 371,
+        "words": 69,
+        "word_errors": 69
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 151,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "151 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 1599.262247,
+        "cpu_ms": 1953.352,
+        "peak_rss_kib": 159248,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006466056",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 722,
+        "character_errors": 730,
+        "words": 107,
+        "word_errors": 119
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 401,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "401 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 2246.101478,
+        "cpu_ms": 2635.084,
+        "peak_rss_kib": 163824,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005568827",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 697,
+        "character_errors": 827,
+        "words": 121,
+        "word_errors": 146
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 371,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "371 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2374.045868,
+        "cpu_ms": 2752.506,
+        "peak_rss_kib": 238092,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51008145450",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 603,
+        "character_errors": 529,
+        "words": 113,
+        "word_errors": 113
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 267,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "267 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 1761.89636,
+        "cpu_ms": 2145.627,
+        "peak_rss_kib": 167320,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006620161",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 568,
+        "character_errors": 537,
+        "words": 90,
+        "word_errors": 90
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 228,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "228 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2392.411899,
+        "cpu_ms": 2792.233,
+        "peak_rss_kib": 278332,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51006557161",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 856,
+        "character_errors": 708,
+        "words": 148,
+        "word_errors": 138
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 294,
+      "warnings": [
+        "Unreadable product name on line 10; no name invented.",
+        "Unpriced item text remains; review for missing item rows.",
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "294 glyphs are uncertain; question marks represent unreadable text.",
+        "Item 1: quantity or unit price is unresolved; line amount is retained in diagnostics.",
+        "Border/rule components were suppressed; inspect for clipped text."
+      ],
+      "measurement": {
+        "wall_ms": 2148.748918,
+        "cpu_ms": 2592.402,
+        "peak_rss_kib": 157816,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    },
+    {
+      "id": "sroie:train:X51005453802",
+      "source": "sroie",
+      "variant": "original",
+      "status": "ok",
+      "fields": {
+        "merchant": {
+          "correct": 0,
+          "total": 1
+        },
+        "receipt_date": {
+          "correct": 0,
+          "total": 1
+        },
+        "total": {
+          "correct": 0,
+          "total": 1
+        }
+      },
+      "items": {},
+      "text": {
+        "profile": "sroie_uppercase_whitespace_regions_v1",
+        "characters": 538,
+        "character_errors": 446,
+        "words": 103,
+        "word_errors": 102
+      },
+      "core_complete": null,
+      "full_complete": null,
+      "review": true,
+      "confidence": "low",
+      "unknown_glyphs": 212,
+      "warnings": [
+        "Missing or uncertain merchant; review required.",
+        "Missing or uncertain date; review required.",
+        "Missing or uncertain total; review required.",
+        "Currency was not read; the existing API default MYR is retained for review.",
+        "212 glyphs are uncertain; question marks represent unreadable text.",
+        "No item rows were extracted; this is not a verified empty receipt."
+      ],
+      "measurement": {
+        "wall_ms": 1567.064221,
+        "cpu_ms": 1892.216,
+        "peak_rss_kib": 149028,
+        "scope": "isolated_worker_startup_decode_preprocess_recognize_parse_validate_after_parent_imports"
+      }
+    }
+  ],
+  "errors": [
+    {
+      "id": "sroie:train:X51006913051",
+      "status": "worker_error",
+      "error": "Image exceeds offline recognition pixel budget\n"
+    }
+  ],
+  "release_ready": false,
+  "legacy_comparison": null,
+  "limits": [
+    "Development data only; these cases may be used to tune this prototype.",
+    "Synthetic fixtures share the development font used to build templates.",
+    "Source labels are not independently verified. Real item/full-receipt accuracy is unavailable without annotations.",
+    "No held-out result or superiority over Mistral is established.",
+    "No cloud recognition, production upload/storage, UI flow, PDF or deployment was tested."
+  ]
+}
