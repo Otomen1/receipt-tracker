@@ -33,7 +33,14 @@ function AppContent() {
     try {
       const res = await fetch("/api/receipts");
       const data = await res.json();
-      setReceipts(data);
+      // Normalize totals to numbers (DB may return strings)
+      const normalized = (Array.isArray(data) ? data : []).map((r: any) => ({
+        ...r,
+        total: r.total != null ? Number(r.total) : null,
+        sst_amount: r.sst_amount != null ? Number(r.sst_amount) : null,
+        discount: r.discount != null ? Number(r.discount) : null,
+      }));
+      setReceipts(normalized);
     } catch (err) {
       console.error("Failed to fetch receipts", err);
     } finally {
@@ -93,7 +100,7 @@ function AppContent() {
       r.receipt_date ?? "",
       `"${(r.merchant ?? "").replace(/"/g, '""')}"`,
       r.category ?? "",
-      r.total?.toFixed(2) ?? "",
+      r.total?.toFixed(2) ?? "0.00",
       r.currency,
       r.payment_method ?? "",
     ]);

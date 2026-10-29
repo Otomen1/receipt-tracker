@@ -1,16 +1,23 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 
+function normalizeReceiptRow(r: any) {
+  return {
+    ...r,
+    total: r.total != null ? parseFloat(r.total) : null,
+    sst_amount: r.sst_amount != null ? parseFloat(r.sst_amount) : null,
+    discount: r.discount != null ? parseFloat(r.discount) : null,
+    items: typeof r.items === "string" ? JSON.parse(r.items) : r.items ?? [],
+  };
+}
+
 export async function GET() {
   try {
     const sql = getDb();
     const rows = await sql`
       SELECT * FROM receipts ORDER BY receipt_date DESC NULLS LAST, created_at DESC
     `;
-    return NextResponse.json(rows.map((r) => ({
-      ...r,
-      items: typeof r.items === "string" ? JSON.parse(r.items) : r.items ?? [],
-    })));
+    return NextResponse.json(rows.map(normalizeReceiptRow));
   } catch (err) {
     console.error("GET /api/receipts error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
@@ -41,24 +48,20 @@ export async function POST(req: NextRequest) {
       VALUES (
         ${(merchant || null)?.slice(0, 255) ?? null},
         ${receipt_date || null},
-        ${total ?? null},
+        ${total != null ? parseFloat(total) : null},
         ${(currency ?? "MYR").slice(0, 10)},
         ${(category || null)?.slice(0, 100) ?? null},
         ${JSON.stringify(items)},
         ${(raw_text || null)?.slice(0, 50000) ?? null},
         ${(file_url || null)?.slice(0, 500) ?? null},
         ${(file_type || null)?.slice(0, 20) ?? null},
-        ${sst_amount ?? null},
-        ${discount ?? null},
+        ${sst_amount != null ? parseFloat(sst_amount) : null},
+        ${discount != null ? parseFloat(discount) : null},
         ${(payment_method || null)?.slice(0, 50) ?? null}
       )
       RETURNING *
     `;
-    const row = rows[0];
-    return NextResponse.json({
-      ...row,
-      items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
-    });
+    return NextResponse.json(normalizeReceiptRow(rows[0]));
   } catch (err) {
     console.error("POST /api/receipts error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });

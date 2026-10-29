@@ -63,7 +63,7 @@ export async function POST(req: NextRequest) {
         .jpeg({ quality: 85 })
         .toBuffer();
 
-      // Run local rule extractor
+      // Run local rule extractor (placeholder — no OCR engine installed yet)
       const doc = parseRawTextToOCRDocument("");
       extracted = processReceiptOCR(doc);
     }

@@ -1,6 +1,16 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 
+function normalizeReceiptRow(r: any) {
+  return {
+    ...r,
+    total: r.total != null ? parseFloat(r.total) : null,
+    sst_amount: r.sst_amount != null ? parseFloat(r.sst_amount) : null,
+    discount: r.discount != null ? parseFloat(r.discount) : null,
+    items: typeof r.items === "string" ? JSON.parse(r.items) : r.items ?? [],
+  };
+}
+
 export async function GET(
   _req: NextRequest,
   { params }: { params: { id: string } }
@@ -11,11 +21,7 @@ export async function GET(
     if (rows.length === 0) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
-    const row = rows[0];
-    return NextResponse.json({
-      ...row,
-      items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
-    });
+    return NextResponse.json(normalizeReceiptRow(rows[0]));
   } catch (err) {
     console.error("GET /api/receipts/[id] error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
@@ -36,12 +42,12 @@ export async function PUT(
       SET
         merchant = ${merchant ?? null},
         receipt_date = ${receipt_date ?? null},
-        total = ${total ?? null},
+        total = ${total != null ? parseFloat(total) : null},
         currency = ${currency ?? "MYR"},
         category = ${category ?? null},
         items = ${JSON.stringify(items ?? [])},
-        sst_amount = ${sst_amount ?? null},
-        discount = ${discount ?? null},
+        sst_amount = ${sst_amount != null ? parseFloat(sst_amount) : null},
+        discount = ${discount != null ? parseFloat(discount) : null},
         payment_method = ${payment_method ?? null}
       WHERE id = ${params.id}
       RETURNING *
@@ -49,11 +55,7 @@ export async function PUT(
     if (rows.length === 0) {
       return NextResponse.json({ error: "Not found" }, { status: 404 });
     }
-    const row = rows[0];
-    return NextResponse.json({
-      ...row,
-      items: typeof row.items === "string" ? JSON.parse(row.items) : row.items ?? [],
-    });
+    return NextResponse.json(normalizeReceiptRow(rows[0]));
   } catch (err) {
     console.error("PUT /api/receipts/[id] error:", err);
     return NextResponse.json({ error: "Internal server error" }, { status: 500 });
