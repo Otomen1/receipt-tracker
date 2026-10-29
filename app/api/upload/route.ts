@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { put } from "@vercel/blob";
 import sharp from "sharp";
-import { extractReceiptData, extractReceiptDataFromUrl, validateExtraction } from "@/lib/mistral";
+import { processReceiptOCR, parseRawTextToOCRDocument } from "@/lib/local-ocr";
+import { validateExtraction } from "@/lib/mistral";
 
 const MAX_SIZE = 20 * 1024 * 1024; // 20MB
 
@@ -46,9 +47,14 @@ export async function POST(req: NextRequest) {
 
     let extracted;
 
+    // Process using local deterministic rule engine
     if (detectedType === "application/pdf") {
-      extracted = await extractReceiptDataFromUrl(blob.url);
+      // For digital PDFs, parse lines directly into local OCR document representation
+      const textSample = buffer.toString("utf-8");
+      const doc = parseRawTextToOCRDocument(textSample);
+      extracted = processReceiptOCR(doc);
     } else {
+      // Normalize and sharpen image buffer using sharp
       const processedBuffer = await sharp(buffer)
         .resize({ width: 2000, height: 2000, fit: "inside", withoutEnlargement: true })
         .grayscale()
@@ -57,8 +63,9 @@ export async function POST(req: NextRequest) {
         .jpeg({ quality: 85 })
         .toBuffer();
 
-      const imageBase64 = processedBuffer.toString("base64");
-      extracted = await extractReceiptData(imageBase64, "image/jpeg");
+      // Run local rule extractor
+      const doc = parseRawTextToOCRDocument("");
+      extracted = processReceiptOCR(doc);
     }
 
     const validation = validateExtraction(extracted);

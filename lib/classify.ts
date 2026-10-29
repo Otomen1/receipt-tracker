@@ -20,7 +20,7 @@ const KEYWORD_RULES: [RegExp, Category][] = [
   [/fashion|clothing|apparel|electronics|gadget|hardware/i, "Shopping"],
   [/medical|dental|dentist|doctor|ubat|medicine|vitamin|health|klinik|clinic|hospital|pharmacy|farmasi/i, "Healthcare"],
   [/cinema|movie|entertainment|leisure|game|recreation|sport|gym|fitness/i, "Entertainment"],
-  [/electric|water|internet|broadband|mobile plan|phone bill|utility|utilities|bil|subscription/i, "Utilities"],
+  [/electric|water|internet|broadband|mobile plan|phone bill|utility|utilities|\bbil\b|subscription/i, "Utilities"],
   [/hotel|flight|accommodation|travel|vacation|trip|resort|inn|lodge/i, "Travel"],
   [/salon|spa|nail|hair|beauty|grooming|barbershop|massage/i, "Beauty"],
   [/tuition|school|university|college|book|stationery|course|class|education/i, "Education"],
