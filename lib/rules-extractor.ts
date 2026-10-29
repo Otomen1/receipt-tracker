@@ -295,7 +295,7 @@ export function extractTotal(lines: OCRLine[]): number | null {
       });
 
       for (const rowLine of sameRow) {
-        const matches = [...rowLine.text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi)];
+        const matches = Array.from(rowLine.text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi));
         for (const m of matches) {
           const val = parseAmount(m[1]);
           if (val !== null && val > 0 && val < 50000) {
@@ -305,7 +305,7 @@ export function extractTotal(lines: OCRLine[]): number | null {
       }
 
       // Check inline on same text
-      const inlineMatches = [...anchor.text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi)];
+      const inlineMatches = Array.from(anchor.text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi));
       for (const m of inlineMatches) {
         const val = parseAmount(m[1]);
         if (val !== null && val > 0 && val < 50000) {
@@ -317,7 +317,7 @@ export function extractTotal(lines: OCRLine[]): number | null {
       for (let j = i + 1; j <= Math.min(i + 2, processedLines.length - 1); j++) {
         const next = processedLines[j];
         if (REJECT_WORDS.test(next.text)) break;
-        const nextMatches = [...next.text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi)];
+        const nextMatches = Array.from(next.text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi));
         for (const m of nextMatches) {
           const val = parseAmount(m[1]);
           if (val !== null && val > 0 && val < 50000) {
@@ -339,7 +339,7 @@ export function extractTotal(lines: OCRLine[]): number | null {
   for (let i = startIdx; i < lines.length; i++) {
     const text = lines[i].text;
     if (REJECT_WORDS.test(text)) continue;
-    const matches = [...text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi)];
+    const matches = Array.from(text.matchAll(/(?:RM|\$)?\s*(\d{1,6}[.,]\d{2})\b/gi));
     for (const m of matches) {
       const val = parseAmount(m[1]);
       if (val !== null && val > 0 && val < 50000) fallback.push(val);
